@@ -1,0 +1,19 @@
+class Conditionnement < ActiveRecord::Base
+  belongs_to :aliment
+  validates_presence_of :aliment_id
+
+  after_create {|conditionnement| conditionnement.quantite = 0 if conditionnement.quantite == nil }
+
+
+  def plus
+    self.quantite = self.quantite + 1
+    self.save
+  end
+
+  def moins
+    self.quantite = self.quantite - 1 if self.quantite > 0
+    self.save
+  end
+
+
+end

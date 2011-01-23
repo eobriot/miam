@@ -1,0 +1,3 @@
+class Aliment < ActiveRecord::Base
+  has_many :conditionnements
+end

@@ -1,0 +1,6 @@
+<% @messages.each do |message| %>
+<div class="message">
+  <p><%= message.message%></p>
+  <p class="auteur">par <%= message.user.name%> le <%= message.updated_at.strftime('%d/%m/%Y')%> &agrave; <%= message.updated_at.strftime('%H:%M') %></p>
+</div>
+<% end%>

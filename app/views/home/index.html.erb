@@ -1,0 +1,39 @@
+
+<% if flash[:notice] %>
+ <div id="notice">
+  <%= flash[:notice] %>
+ </div>
+<% end %>
+<% if current_user%>
+<% if @conditionnements.any? %>
+<div id="alertes">
+  <h2>Trucs &agrave; racheter</h2>
+<table>
+  <tr>
+    <th>Truc</th>
+    <th>Conditionnement</th>
+    <th>Quantit&eacute;</th>
+  </tr>
+  <% @conditionnements.each do |conditionnement| %>
+  <tr>
+    <td><%=conditionnement.aliment.nom %></td>
+    <td><%=conditionnement.nom %></td>
+    <td><%=conditionnement.quantite %></td>
+  </tr>
+  <% end%>
+</table>
+</div>
+<% end %>
+
+<div id="messages">
+  <h2>Messages</h2>
+  <% @messages.each do |message| %>
+  <div class="message">
+    <p><%= message.message%></p>
+    <p class="auteur">par <%= message.user.name%> le <%= message.updated_at.strftime('%d/%m/%Y')%> &agrave; <%= message.updated_at.strftime('%H:%M') %></p>
+  </div>
+  <% end%>
+  
+</div>
+<%= link_to 'Ajouter un message', new_message_path %>
+<% end %>

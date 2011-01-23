@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nom:</b>
+  <%= @aliment.nom %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @aliment.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_aliment_path(@aliment) %> |
+<%= link_to 'Back', aliments_path %>
+<%= link_to 'Ajoutez un conditionnement', new_aliment_conditionnement_path(aliment) %>

@@ -1,0 +1,4 @@
+$("#quantite-cond<%=@conditionnement.id%>").text("<%= @conditionnement.quantite%>");
+<% if @conditionnement.quantite <= @conditionnement.seuil %>
+$("#quantite-cond<%=@conditionnement.id%>").addClass("alerte");
+<% end %>

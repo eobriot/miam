@@ -1,0 +1,41 @@
+<h1>Listing aliments</h1>
+
+<table>
+  <tr>
+    <th></th><th></th>
+    <th>Nom</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @aliments.each do |aliment| %>
+  <tr>
+    <td>+</td>
+    <td></td>
+    <td><%= aliment.nom %></td>
+    <td><%= aliment.description %></td>
+    <td><%= link_to 'Show', aliment %></Td>
+    <td><%= link_to 'Edit', edit_aliment_path(aliment) %></td>
+    <td><%= link_to 'Destroy', aliment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ajoutez un conditionnement', new_aliment_conditionnement_path (aliment) %></td>
+  </tr>
+  <% aliment.conditionnements.each do |conditionnement| %>
+  <tr>
+    <td></td>
+    <td>-</td>
+    <td> <%= conditionnement.nom %></td>
+    <td><%= conditionnement.quantite %></td>
+    <td><%= link_to 'Show', aliment_conditionnement_path(aliment,conditionnement) %></td>
+    <td> <%= link_to 'Plus!', plus_path(aliment, conditionnement) %></td>
+    <td> <%= link_to 'Moins!', moins_path(aliment, conditionnement) %> </td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Aliment', new_aliment_path %>

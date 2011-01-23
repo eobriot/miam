@@ -1,0 +1,28 @@
+<h1>Listing conditionnements</h1>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Quantite</th>
+    <th>Seuil</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @conditionnements.each do |conditionnement| %>
+  <tr>
+    <td><%= conditionnement.nom %></td>
+    <td><%= conditionnement.quantite %></td>
+    <td><%= conditionnement.seuil %> </td>
+    <td><%= link_to 'Show', aliment_conditionnement_path(conditionnement.aliment,conditionnement) %></td>
+    <td><%= link_to 'Edit', edit_aliment_conditionnement_path(conditionnement.aliment,conditionnement) %></td>
+    <td><%= link_to 'Destroy', aliment_conditionnement_path(conditionnement.aliment,conditionnement), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<p><%= link_to 'New Conditionnement', new_aliment_conditionnement_path %></p>
+<p><%= link_to 'Liste des aliments', aliments_path %> </p>

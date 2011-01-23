@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nom:</b>
+  <%= @conditionnement.nom %>
+</p>
+
+<p>
+  <b>Quantite:</b>
+  <%= @conditionnement.quantite %>
+</p>
+
+<p>
+  <b>Seuil:</b>
+  <%= @conditionnement.seuil %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_aliment_conditionnement_path(@conditionnement.aliment,@conditionnement) %> |
+<%= link_to 'Back', aliment_conditionnements_path %>
+<%= link_to 'Liste des aliments', aliments_path %>
+<%= link_to 'Ajouter un autre conditionnement', new_aliment_conditionnement_path(@conditionnement.aliment) %>

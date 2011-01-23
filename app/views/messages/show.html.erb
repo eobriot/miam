@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<div class="message">
+  <p> <%= @message.message %> </p>
+  <p class="auteur">par <%= @message.user.name%> le <%= @message.updated_at.strftime('%d/%m/%Y')%> &agrave; <%= @message.updated_at.strftime('%H:%M') %></p>
+</div>
+
+<%= link_to 'Accueil', root_path %>
+<%= link_to 'Ajouter un message' , new_message_path %>
